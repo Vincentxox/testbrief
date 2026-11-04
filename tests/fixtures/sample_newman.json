@@ -1,0 +1,34 @@
+{
+  "run": {
+    "stats": { "requests": { "total": 3, "failed": 1 } },
+    "executions": [
+      {
+        "item": { "name": "GET /items" },
+        "response": { "code": 200, "responseTime": 120 },
+        "assertions": [
+          { "assertion": "status code is 200" },
+          { "assertion": "response has items array" }
+        ]
+      },
+      {
+        "item": { "name": "POST /items" },
+        "response": { "code": 500, "responseTime": 340 },
+        "assertions": [
+          {
+            "assertion": "status code is 201",
+            "error": {
+              "name": "AssertionError",
+              "message": "expected response to have status code 201 but got 500"
+            }
+          },
+          { "assertion": "location header present", "skipped": true }
+        ]
+      },
+      {
+        "item": { "name": "GET /health" },
+        "requestError": { "message": "getaddrinfo ENOTFOUND api.example.test" },
+        "assertions": []
+      }
+    ]
+  }
+}

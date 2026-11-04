@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="checkout" tests="5" failures="1" errors="1" skipped="1" time="4.7">
+    <testcase classname="shop.CartTest" name="adds_item" time="0.40"/>
+    <testcase classname="shop.CartTest" name="removes_item" time="0.35"/>
+    <testcase classname="shop.PaymentTest" name="rejects_expired_card" time="2.10">
+      <failure message="expected status 402 but was 200">AssertionError: expected status 402 but was 200</failure>
+    </testcase>
+    <testcase classname="shop.PaymentTest" name="handles_timeout" time="1.85">
+      <error message="ConnectionError | gateway unreachable">Traceback (most recent call last): ...</error>
+    </testcase>
+    <testcase classname="shop.ShippingTest" name="calculates_international_rate" time="0.00">
+      <skipped message="feature flag disabled"/>
+    </testcase>
+  </testsuite>
+</testsuites>

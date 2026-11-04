@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "testbrief"
+version = "0.1.0"
+description = "Summarize test reports (JUnit XML, Newman JSON) into clean Markdown from the command line."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Brandon Soberanis" }]
+keywords = ["testing", "qa", "junit", "newman", "postman", "report", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = []
+
+[project.scripts]
+testbrief = "testbrief.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["testbrief*"]
